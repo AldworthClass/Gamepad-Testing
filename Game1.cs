@@ -42,7 +42,8 @@ namespace Gamepad_Testing
             gamepadState = GamePad.GetState(PlayerIndex.One);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            this.Window.Title = gamepadState.Buttons.A.ToString();
+            this.Window.Title = joystickState.IsConnected.ToString();
+            
             // TODO: Add your update logic here
 
             base.Update(gameTime);
