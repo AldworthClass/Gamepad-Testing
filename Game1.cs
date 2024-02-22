@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Linq;
 
 namespace Gamepad_Testing
 {
@@ -12,8 +13,12 @@ namespace Gamepad_Testing
 
         int health;
 
+        string buttons, axes;
+
         GamePadState gamepadState;
         JoystickState joystickState;
+
+        SpriteFont textFont;
 
         public Game1()
         {
@@ -34,6 +39,7 @@ namespace Gamepad_Testing
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            textFont = Content.Load<SpriteFont>("TextFont");
         }
 
         protected override void Update(GameTime gameTime)
@@ -46,6 +52,9 @@ namespace Gamepad_Testing
             
             // TODO: Add your update logic here
 
+            buttons = string.Join(", ", joystickState.Buttons);
+            axes = string.Join(", ", joystickState.Axes);
+
             base.Update(gameTime);
         }
 
@@ -54,6 +63,12 @@ namespace Gamepad_Testing
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+
+            _spriteBatch.DrawString(textFont, buttons, new Vector2(10, 10), Color.Black);
+            _spriteBatch.DrawString(textFont, axes, new Vector2(10, 50), Color.Black);
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
