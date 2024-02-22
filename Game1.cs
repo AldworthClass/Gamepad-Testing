@@ -10,6 +10,8 @@ namespace Gamepad_Testing
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        int health;
+
         GamePadState gamepadState;
 
         public Game1()
