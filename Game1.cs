@@ -13,6 +13,7 @@ namespace Gamepad_Testing
         int health;
 
         GamePadState gamepadState;
+        JoystickState joystickState;
 
         public Game1()
         {
@@ -37,6 +38,7 @@ namespace Gamepad_Testing
 
         protected override void Update(GameTime gameTime)
         {
+            joystickState = Joystick.GetState(0);
             gamepadState = GamePad.GetState(PlayerIndex.One);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
