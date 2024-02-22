@@ -6,6 +6,7 @@ namespace Gamepad_Testing
 {
     public class Game1 : Game
     {
+        // Steve Aldworth
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
